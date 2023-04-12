@@ -15,25 +15,17 @@
     <div id="map" class="container p-5 mb-0 my-5 bg-dark text-white text-center">
 
         <h1 id="winner">Numbers</h1>
-        <span>To win, you need to score more points than your opponent</span>
-        <br>
-        <br>
-        <br>
-
+        <span>To win the battle you need to get more points than ROBOT</span>
+		<br>
+		<br>
 
         <button id="one1" class="btn btn-success btn-lg mt-1" onclick="user_step('one1')">1</button>
-        <button id="two1" class="btn btn-danger  btn-lg mt-1" onclick="user_step('two1')">2</button>
-        <button id="one2" class="btn btn-success btn-lg mt-1" onclick="user_step('one2')">1</button>
-        <button id="one3" class="btn btn-success btn-lg mt-1" onclick="user_step('one3')">1</button>
-        <button id="tre3" class="btn btn-warning btn-lg mt-1" onclick="user_step('tre3')">3</button>
-        <button id="one4" class="btn btn-success btn-lg mt-1" onclick="user_step('one4')">1</button>
-        <button id="one5" class="btn btn-success btn-lg mt-1" onclick="user_step('one5')">1</button>
+        <button id="one1" class="btn btn-success btn-lg mt-1" onclick="user_step('one1')">1</button>
+		<button id="one1" class="btn btn-success btn-lg mt-1" onclick="user_step('one1')">1</button>
+        <button id="two2" class="btn btn-danger  btn-lg mt-1" onclick="user_step('two2')">2</button>
         <button id="two2" class="btn btn-danger  btn-lg mt-1" onclick="user_step('two2')">2</button>
 
         <div id="button_group"></div>
-
-        <br>
-        <br>
 
     </div>
         <div id="playerBg1" class="p-4 bg-primary text-white">
@@ -50,5 +42,6 @@
 	user1 = prompt('Enter first player name', 'DP')
 	
 	document.getElementById("playerScore1").innerHTML = user1 + ": 0 points";
+	console.log(document.getElementsByClassName("btn").innerHTML)
 </script>
 </html>

@@ -87,7 +87,11 @@ function user_step(button) {
     document.getElementById(button).remove();
     gemeOver();
 	change_color();
-	robot_step( robot(getButtonList(), player1, player2, true));
+	if( active_player == "ai" ){
+		robot_step( robot(getButtonList(), player1, player2, false));
+	}else{
+		robot_step( robot(getButtonList(), player1, player2, true));
+	}
 }
 
 function set_score() {
@@ -96,9 +100,11 @@ function set_score() {
         player1 = player1 + point;
         document.getElementById("playerScore1").innerHTML = user1 + ": " + player1 + " points";
         console.log('Player1: ' + player1);
+		console.log('Robot: ' + player2)
     } else {
         player2 = player2 + point;
         document.getElementById("playerScore2").innerHTML = "Robot: " + player2 + " points";
+		console.log('Player1: ' + player1);
         console.log('Robot: ' + player2);
     }
 }
@@ -130,17 +136,17 @@ function gemeOver() {
     if ( !one && !two && !tree ) {
         title = document.getElementById("winner");
         if (player1 > player2) {
-            title.innerHTML = user1 + " won";
+            title.innerHTML = user1 + " is winning";
             title.classList.add("text-success");
             title.classList.remove("text-danger");
             title.classList.remove("text-warning");
         } else if (player2 > player1) {
-            title.innerHTML = "Robot won";
+            title.innerHTML = "Robot wins";
             title.classList.add("text-danger");
             title.classList.remove("text-success");
             title.classList.remove("text-warning");
         } else {
-            title.innerHTML = "Draw";
+            title.innerHTML = "So far a draw";
             title.classList.add("text-warning");
             title.classList.remove("text-danger");
             title.classList.remove("text-success");
@@ -198,20 +204,18 @@ function robot(buttonList, score1, score2, isMaximaxing) {
 	
 	
     if (isMaximaxing) {
-		return Math.max(Math.max.apply(Math, take1Array),
+		kek =  Math.max(Math.max.apply(Math, take1Array),
 						Math.max.apply(Math, take2Array),
-						Math.max.apply(Math, take2Array),
-						Math.max.apply(Math, split2Array),
-						Math.max.apply(Math, split3Array)
+						Math.max.apply(Math, split2Array))
+		console.log("max" + kek)
+		return kek
 				
-		)
 	}else{
-		return Math.min(Math.min.apply(Math, take1Array),
+		kek =  Math.min(Math.min.apply(Math, take1Array),
 						Math.min.apply(Math, take2Array),
-						Math.min.apply(Math, take2Array),
-						Math.min.apply(Math, split2Array),
-						Math.min.apply(Math, split3Array)
-		)
+						Math.min.apply(Math, split2Array))
+		console.log("min" + kek)
+		return kek
 	}
 		
 } 
